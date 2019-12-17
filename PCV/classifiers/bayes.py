@@ -16,7 +16,7 @@ class BayesClassifier(object):
             Labels are optional, default is 0...n-1. """
         
         if labels==None:
-            labels = range(len(data))
+            labels = list(range(len(data)))
         self.labels = labels
         self.n = len(labels)
                 
@@ -31,7 +31,7 @@ class BayesClassifier(object):
         # compute probabilities for each class
         est_prob = array([gauss(m,v,points) for m,v in zip(self.mean,self.var)])
                 
-        print 'est prob',est_prob.shape,self.labels
+        print('est prob',est_prob.shape,self.labels)
         # get index of highest probability, this gives class label
         ndx = est_prob.argmax(axis=0)
         

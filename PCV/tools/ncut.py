@@ -9,7 +9,7 @@ def cluster(S,k,ndim):
     
     # check for symmetry
     if sum(abs(S-S.T)) > 1e-10:
-        print 'not symmetric'
+        print('not symmetric')
     
     # create Laplacian matrix
     rowsum = sum(abs(S),axis=0)
@@ -48,7 +48,7 @@ def ncut_graph_matrix(im,sigma_d=1e2,sigma_g=1e-2):
         vim = im.flatten()
     
     # x,y coordinates for distance computation
-    xx,yy = meshgrid(range(n),range(m))
+    xx,yy = meshgrid(list(range(n)),list(range(m)))
     x,y = xx.flatten(),yy.flatten()
     
     # create matrix with edge weights

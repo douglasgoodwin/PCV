@@ -10,7 +10,7 @@ This is the piecewise affine warp example from Section 3.2, Figure 3-5.
 
 # open image to warp
 fromim = array(Image.open('../data/sunset_tree.jpg')) 
-x,y = meshgrid(range(5),range(6))
+x,y = meshgrid(list(range(5)),list(range(6)))
 
 x = (fromim.shape[1]/4) * x.flatten()
 y = (fromim.shape[0]/5) * y.flatten()

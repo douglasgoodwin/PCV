@@ -87,11 +87,11 @@ return bestfit
         also_idxs = test_idxs[test_err < t] # select indices of rows with accepted points
         alsoinliers = data[also_idxs,:]
         if debug:
-            print 'test_err.min()',test_err.min()
-            print 'test_err.max()',test_err.max()
-            print 'numpy.mean(test_err)',numpy.mean(test_err)
-            print 'iteration %d:len(alsoinliers) = %d'%(
-                iterations,len(alsoinliers))
+            print('test_err.min()',test_err.min())
+            print('test_err.max()',test_err.max())
+            print('numpy.mean(test_err)',numpy.mean(test_err))
+            print('iteration %d:len(alsoinliers) = %d'%(
+                iterations,len(alsoinliers)))
         if len(alsoinliers) > d:
             betterdata = numpy.concatenate( (maybeinliers, alsoinliers) )
             bettermodel = model.fit(betterdata)
@@ -168,7 +168,7 @@ def test():
     # setup model
 
     all_data = numpy.hstack( (A_noisy,B_noisy) )
-    input_columns = range(n_inputs) # the first columns of the array
+    input_columns = list(range(n_inputs)) # the first columns of the array
     output_columns = [n_inputs+i for i in range(n_outputs)] # the last columns of the array
     debug = True
     model = LinearLeastSquaresModel(input_columns,output_columns,debug=debug)

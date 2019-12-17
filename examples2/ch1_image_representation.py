@@ -9,11 +9,11 @@ This example shows how images are represented using pixels, color channels and d
 
 # read image to array
 im = np.array(Image.open('../data/empire.jpg'))
-print("Shape is: {0} of type {1}".format(im.shape, im.dtype))
+print(("Shape is: {0} of type {1}".format(im.shape, im.dtype)))
 
 # read grayscale version to float array
 im = np.array(Image.open('../data/empire.jpg').convert('L'),'f')
-print("Shape is: {0} of type {1}".format(im.shape, im.dtype))
+print(("Shape is: {0} of type {1}".format(im.shape, im.dtype)))
 
 # visualize the pixel value of a small region
 col_1, col_2 = 190, 225
@@ -23,7 +23,7 @@ row_1, row_2 = 230, 265
 crop = im[col_1:col_2,row_1:row_2]
 cols, rows = crop.shape
 
-print("Created crop of shape: {0}".format(crop.shape))
+print(("Created crop of shape: {0}".format(crop.shape)))
 
 # generate all the plots
 pl.figure()

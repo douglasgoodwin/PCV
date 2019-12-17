@@ -21,8 +21,8 @@ with open('../data/points_normal.pkl', 'r') as f:
     labels = pickle.load(f)
 
 # convert to lists for libsvm
-class_1 = map(list, class_1)
-class_2 = map(list, class_2)
+class_1 = list(map(list, class_1))
+class_2 = list(map(list, class_2))
 labels = list(labels)
 samples = class_1+class_2 # concatenate the two lists
 
@@ -43,13 +43,13 @@ with open('../data/points_normal_test.pkl', 'r') as f:
     labels = pickle.load(f)
 
 # convert to lists for libsvm
-class_1 = map(list, class_1)
-class_2 = map(list, class_2)
+class_1 = list(map(list, class_1))
+class_2 = list(map(list, class_2))
 
 
 # define function for plotting
 def predict(x, y, model=m):
-    return array(svm_predict([0]*len(x), map(list, zip(x,y)), model)[0])
+    return array(svm_predict([0]*len(x), list(map(list, list(zip(x,y)))), model)[0])
 
 # plot the classification boundary
 imtools.plot_2D_boundary([-6,6,-6,6], [array(class_1),array(class_2)], predict, [-1,1])

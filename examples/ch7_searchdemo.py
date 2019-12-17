@@ -1,4 +1,4 @@
-import cherrypy, os, urllib, pickle
+import cherrypy, os, urllib.request, urllib.parse, urllib.error, pickle
 from numpy import *
 
 from PCV.imagesearch import imagesearch
@@ -15,7 +15,7 @@ class SearchDemo:
         self.imlist = f.readlines()
         f.close()
         self.nbr_images = len(self.imlist)
-        self.ndx = range(self.nbr_images)
+        self.ndx = list(range(self.nbr_images))
         
         # load vocabulary
         f = open('vocabulary.pkl', 'rb')

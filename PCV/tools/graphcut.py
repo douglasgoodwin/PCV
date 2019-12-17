@@ -37,7 +37,7 @@ def build_bayes_graph(im,labels,sigma=1e2,kappa=1):
     
     # create graph with m*n+2 nodes
     gr = digraph()
-    gr.add_nodes(range(m*n+2))
+    gr.add_nodes(list(range(m*n+2)))
     
     source = m*n # second to last is source
     sink = m*n+1 # last node is sink
@@ -84,7 +84,7 @@ def cut_graph(gr,imsize):
     
     # convert graph to image with labels
     res = zeros(m*n)
-    for pos,label in cuts.items()[:-2]: #don't add source/sink
+    for pos,label in list(cuts.items())[:-2]: #don't add source/sink
         res[pos] = label
 
     return res.reshape((m,n))

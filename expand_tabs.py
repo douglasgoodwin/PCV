@@ -17,7 +17,7 @@ def pepify_directory(path_root):
     for (path,subdir,lst_file) in os.walk(path_root):
         for file0 in (file1 for file1 in lst_file if reg_pyfile.match(file1)):
             expand_tabs(os.path.join(path,file0))
-            print(os.path.join(path,file0))
+            print((os.path.join(path,file0)))
             pass
         pass
     return None

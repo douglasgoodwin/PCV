@@ -23,7 +23,7 @@ def process_image_dsift(imagename,resultname,size=20,steps=10,force_orientation=
 
     # create frames and save to temporary file
     scale = size/3.0
-    x,y = meshgrid(range(steps,m,steps),range(steps,n,steps))
+    x,y = meshgrid(list(range(steps,m,steps)),list(range(steps,n,steps)))
     xx,yy = x.flatten(),y.flatten()
     frame = array([xx,yy,scale*ones(xx.shape[0]),zeros(xx.shape[0])])
     savetxt('tmp.frame',frame.T,fmt='%03.3f')
@@ -35,5 +35,5 @@ def process_image_dsift(imagename,resultname,size=20,steps=10,force_orientation=
         cmmd = str("sift "+imagename+" --output="+resultname+
                     " --read-frames=tmp.frame")
     os.system(cmmd)
-    print 'processed', imagename, 'to', resultname
+    print('processed', imagename, 'to', resultname)
 

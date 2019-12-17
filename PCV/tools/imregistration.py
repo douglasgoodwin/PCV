@@ -29,7 +29,7 @@ def write_points_to_xml(faces, xmlFileName):
     xmldoc = minidom.Document()
     xmlFaces = xmldoc.createElement("faces")
 
-    keys = faces.keys()
+    keys = list(faces.keys())
     for k in keys:
         xmlFace = xmldoc.createElement("face")
         xmlFace.setAttribute("file", k)
@@ -79,7 +79,7 @@ def rigid_alignment(faces,path,plotflag=False):
         set plotflag=True to plot the images. """
     
     # take the points in the first image as reference points
-    refpoints = faces.values()[0]
+    refpoints = list(faces.values())[0]
     
     # warp each image using affine transform
     for face in faces:
